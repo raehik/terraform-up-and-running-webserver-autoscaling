@@ -1,3 +1,8 @@
+provider "aws" {
+  region  = "eu-central-1"
+  profile = "raehik@aws.raehik.net"
+}
+
 resource "aws_launch_configuration" "http_autoscaling" {
   image_id        = "ami-0bdf93799014acdc4"
   instance_type   = "t2.micro"
