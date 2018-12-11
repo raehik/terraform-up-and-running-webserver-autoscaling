@@ -23,7 +23,7 @@ resource "aws_autoscaling_group" "http_autoscaling" {
   launch_configuration = "${aws_launch_configuration.http_autoscaling.id}"
   availability_zones   = ["${data.aws_availability_zones.all.names}"]
 
-  load_balancers    = ["{$aws_elb.http_autoscaling.id}"]
+  load_balancers    = ["${aws_elb.http_autoscaling.id}"]
   health_check_type = "ELB"
 
   min_size = "${var.http_autoscaling_min}"
