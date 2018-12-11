@@ -1,3 +1,3 @@
-output "http_public_ipv4" {
-  value = "${aws_instance.example.public_ip}"
+output "http_public_fqdn" {
+  value = "${aws_elb.http_autoscaling.dns_name}"
 }

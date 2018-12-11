@@ -1,1 +1,3 @@
-http_port = 8080
+http_port = 80
+http_autoscaling_min = 2
+http_autoscaling_max = 10
