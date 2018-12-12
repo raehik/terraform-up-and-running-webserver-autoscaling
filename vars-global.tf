@@ -2,6 +2,10 @@ variable "region" {
   description = "AWS region"
 }
 
+variable "root_fqdn" {
+  description = "base/root domain name for all infrastructure (e.g. infra.example.com)"
+}
+
 variable "terraform_backend_s3_bucket" {
   description = "S3 bucket used by Terraform for storing state"
 }
