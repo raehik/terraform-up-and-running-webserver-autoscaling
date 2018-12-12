@@ -7,12 +7,7 @@ resource "aws_launch_configuration" "http_autoscaling" {
   image_id        = "ami-0bdf93799014acdc4"
   instance_type   = "t2.micro"
   security_groups = ["${aws_security_group.internal_http_only.id}"]
-
-  user_data = <<-EOF
-    #!/bin/bash
-    echo "Hello, world!" > index.html
-    nohup busybox httpd -f -p ${var.internal_http_port} &
-    EOF
+  user_data       = "${data.template_file.user_data.rendered}"
 
   lifecycle {
     create_before_destroy = true

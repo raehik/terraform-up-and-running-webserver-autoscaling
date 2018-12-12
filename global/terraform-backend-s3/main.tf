@@ -2,6 +2,11 @@
 # Primarily from Jessica G's blog:
 # https://medium.com/@jessgreb01/how-to-terraform-locking-state-in-s3-2dc9a5665cb6
 
+provider "aws" {
+  region  = "${var.region}"
+  profile = "raehik@aws.raehik.net"
+}
+
 resource "aws_s3_bucket" "terraform_backend_s3_terraform_state" {
   bucket = "${var.terraform_backend_s3_bucket}"
 
