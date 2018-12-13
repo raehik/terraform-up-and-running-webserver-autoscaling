@@ -5,4 +5,5 @@ resource "aws_db_instance" "web" {
   name              = "example_database"
   username          = "${var.db_username}"
   password          = "${var.db_password}"
+  skip_final_snapshot = true # fix stupid bullshit
 }
