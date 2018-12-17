@@ -10,3 +10,12 @@ module "web" {
   db_terraform_state_s3_bucket = "${var.terraform_backend_s3_bucket}"
   db_terraform_state_s3_key    = "${var.env}/db/terraform.tfstate"
 }
+
+resource "aws_security_group_rule" "allow_testing_inbound" {
+  type              = "ingress"
+  security_group_id = "${module.web.elb_security_group_id}"
+  from_port         = "${var.elb_test_port}"
+  to_port           = "${var.elb_test_port}"
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
+}
