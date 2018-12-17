@@ -5,9 +5,9 @@ data "terraform_remote_state" "db" {
   backend = "s3"
 
   config {
-    region  = "${var.db_terraform_state_region}"
-    bucket  = "${var.db_terraform_state_s3_bucket}"
-    key     = "${var.db_terraform_state_s3_key}"
+    region = "${var.db_terraform_state_region}"
+    bucket = "${var.db_terraform_state_s3_bucket}"
+    key    = "${var.db_terraform_state_s3_key}"
   }
 }
 
