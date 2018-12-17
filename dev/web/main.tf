@@ -1,5 +1,5 @@
 module "web" {
-  source      = "../../modules/web"
+  source      = "git::git@github.com:raehik/fuar-modules.git//web?ref=v0.0.1"
   module_root = "web.${var.env}.${var.root_fqdn}"
 
   instance_type                = "t2.micro"
